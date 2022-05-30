@@ -40,6 +40,7 @@ int main(int afg,char *argv)
         bind(sockfd,(struct sockaddr*)&serv_addr, sizeof(serv_addr));
         printf("\nWaiting....");
         listen(sockfd,5);
+        clength=sizeof(cli_addr);
         newsockfd=accept(sockfd,(struct sockaddr*)&cli_addr,&clength);
         close(sockfd);
         read(newsockfd,&str,MAX);
@@ -52,7 +53,7 @@ int main(int afg,char *argv)
         }
          
         //If Data Reading Fail
-        if(ft =NULL)
+        if(ft ==NULL)
         {
                perror("ERROR! Data Reading Fail");
                exit(EXIT_FAILURE);
